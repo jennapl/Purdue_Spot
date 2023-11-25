@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/purdue"
+    tools:context=".SpotActivity">
+
+
+    <LinearLayout
+        android:layout_width="411dp"
+        android:layout_height="732dp"
+        android:background="@color/purdue"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="5dp"
+        android:paddingRight="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:text="Back"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Filters"
+            android:textSize="60dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="13dp"
+            android:background="@color/black"
+            android:orientation="vertical"></LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/filtersLay"
+            android:layout_width="match_parent"
+            android:layout_height="453dp"
+            android:orientation="vertical"></LinearLayout>
+
+        <Button
+            android:id="@+id/searchBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:text="Search"
+            android:textColorLink="#391414"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

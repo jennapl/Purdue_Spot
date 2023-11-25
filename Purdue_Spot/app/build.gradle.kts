@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "org.smart_laboratory.desktop.purdue_spot"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "org.smart_laboratory.desktop.purdue_spot"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
