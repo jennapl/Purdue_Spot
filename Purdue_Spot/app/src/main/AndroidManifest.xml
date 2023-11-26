@@ -27,6 +27,7 @@
         <activity android:name=".AboutActivity"></activity>
         <activity android:name=".SpotActivity"></activity>
         <activity android:name=".ListActivity"></activity>
+        <activity android:name=".FiltersActivity"></activity>
     </application>
 
 </manifest>

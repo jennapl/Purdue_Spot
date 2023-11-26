@@ -2,8 +2,10 @@ package org.smart_laboratory.desktop.purdue_spot;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
@@ -19,6 +21,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String NAME_COL = "spotName";
     private static final String PRINTING_COL = "spotPrinting";
     private static final String SOUND_COL = "spotSoundLevel";
+
 
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -51,6 +54,40 @@ public class DBHelper extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, values);
 
         db.close();
+    }
 
+    public void queryData(TextView qId, TextView qName, TextView qPrint, TextView qSound){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        //GET VALUES
+        FiltersClass fa = new FiltersClass();
+        String vPrint = fa.getPrint();
+        String vSound = fa.getSound();
+
+        Cursor cursor;
+        cursor = db.rawQuery("SELECT * FROM "
+                + TABLE_NAME
+                + " WHERE " + PRINTING_COL + " = " + "'" + vPrint + "'"
+                + " AND "
+                + SOUND_COL + " = " + "'" + vSound + "'"
+                +";", null);
+
+        String strIDs = "ID" + "\r\n" + "--------" + "\r\n";
+        String strName = "Name" + "\r\n" + "--------" + "\r\n";
+        String strPrint = "Print" + "\r\n" + "--------" + "\r\n";
+        String strSound = "Sound" + "\r\n" + "--------" + "\r\n";
+        while (cursor.moveToNext()) {
+            strIDs += cursor.getString(0) + "\r\n";
+            strName += cursor.getString(1) + "\r\n";
+            strPrint += cursor.getString(2) + "\r\n";
+            strSound += cursor.getString(3) + "\r\n";
+        }
+        qId.setText(strIDs);
+        qName.setText(strName);
+        qPrint.setText(strPrint);
+        qSound.setText(strSound);
+
+        cursor.close();
+        db.close();
     }
 }
