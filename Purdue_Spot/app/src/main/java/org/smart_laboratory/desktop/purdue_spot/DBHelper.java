@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "spot.db";

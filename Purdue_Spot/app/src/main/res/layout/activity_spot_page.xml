@@ -35,7 +35,7 @@
             app:srcCompat="@drawable/picline" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/sPrint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
@@ -58,7 +58,7 @@
             android:layout_marginEnd="286dp"
             android:layout_marginBottom="24dp"
             android:text="BACK"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintBottom_toTopOf="@+id/sPrint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
