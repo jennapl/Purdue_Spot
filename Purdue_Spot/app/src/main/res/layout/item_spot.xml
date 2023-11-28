@@ -13,14 +13,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/sName"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="sss"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-            app:fontFamily="sans-serif"></TextView>
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/sName"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:text="sss"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                app:fontFamily="sans-serif"></TextView>
+
+            <Button
+                android:id="@+id/infoBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="More Info." />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

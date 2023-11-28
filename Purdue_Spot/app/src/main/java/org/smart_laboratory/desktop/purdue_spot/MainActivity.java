@@ -77,12 +77,18 @@ public class MainActivity extends AppCompatActivity {
         } catch(Exception ex) {
             ex.printStackTrace();
         }
-        //Drop Table
-        //sqlDB.execSQL("DROP TABLE IF EXISTS " + tblName);
+        //Drop Table - FLAG keep to end
+        sqlDB.execSQL("DROP TABLE IF EXISTS " + tblName);
 
         dbHelper.onCreate(sqlDB);
-        /*dbHelper.addValues("0001", "HICKS", "Yes", "Quiet");
+
+        // FLAG - Insert Data - keep to end
+        dbHelper.addValues("0001", "HICKS", "Yes", "Quiet");
         dbHelper.addValues("0002", "WALC", "Yes", "Loud");
-        dbHelper.addValues("0003", "PMU", "No", "Loud");*/
+        dbHelper.addValues("0003", "PMU", "No", "Loud");
+        dbHelper.addValues("0004", "GreyHouse", "No", "Loud");
+        dbHelper.addValues("0005", "Stewart", "No", "Quiet");
+        dbHelper.addValues("0006", "KRACH", "Yes", "Quiet");
+
     }
 }

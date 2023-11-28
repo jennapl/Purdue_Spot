@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class myDAO {
         dbHelper = new DBHelper(context);
     }
 
+    //EVENTUALLY DELETE - Used to insert data in DB
     public long insertData(myDBModel data) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -42,7 +44,9 @@ public class myDAO {
 
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE " + DBHelper.PRINTING_COL
-                + " = '" + qPrint +"'", null);
+                + " = '" + qPrint +"' AND "
+                + DBHelper.SOUND_COL + " = '"
+                + qSound + "'", null);
         //Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME , null);
 
         if (cursor.moveToFirst()) {
