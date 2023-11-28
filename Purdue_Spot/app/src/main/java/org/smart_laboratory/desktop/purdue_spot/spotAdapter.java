@@ -35,7 +35,7 @@ public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         myDBModel spotRow = spotList.get(position);
-        String clickedId = spotRow.getId();
+        //String clickedId = spotRow.getId();
         //FiltersClass fc = new FiltersClass();
         //holder.sId.setText(spotRow.getId());
         holder.sName.setText(spotRow.getName());//
@@ -46,9 +46,10 @@ public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 // Handle button click
-                //int clickedItemId = getItemId(position);  // or however you get the item ID
+                String cSpotId = spotRow.getId();  // or however you get the item ID
                 //openPageWithId(clickedItemId);
                 Intent aboutIntent = new Intent(context, SpotActivity.class);
+                aboutIntent.putExtra("SPOT_ID", cSpotId);
                 context.startActivity(aboutIntent);
             }
         });
