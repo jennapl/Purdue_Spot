@@ -1,79 +1,40 @@
 package org.smart_laboratory.desktop.purdue_spot;
 
+
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
 public class FiltersClass {
+
     private String sId;
     private String sName;
-    private String sPrint;
-    private String sSound;
+    private static String sPrint;
+    private static String sSound;
 
     public FiltersClass() {
     }
 
-    // Constructor with parameters
-    public FiltersClass(String spotID, String spotName, String spotPrinting, String spotSoundLevel) {
-        this.sId = spotID;
-        this.sName = spotName;
-        this.sPrint = spotPrinting;
-        this.sSound = spotSoundLevel;
+
+    public void setSelectedSound(Spinner selected) {
+        FiltersClass.sSound = selected.getSelectedItem().toString();
     }
 
-    public String getId() {
-        return sId;
-    }
-
-    public void setId(String id) {
-        this.sId = id;
-    }
-
-    public String getSound() {
-        return sSound;
-    }
-
-    public void setSound(String sound) {
-        this.sSound = sound;
-    }
-
-    public String getPrint() {
-        return sPrint;
-    }
-
-    public void setPrint(String print) {
-        this.sPrint = print;
-    }
-
-    public String getName() {
-        return sName;
-    }
-
-    public void setName(String name) {
-        this.sName = name;
-    }
-
-
-    //SETTERS
-    /*public void setSound(Spinner selected){
-        sSound = selected.getSelectedItem().toString();
-    }
-
-    public String getSound(){
+    public String getSelectedSound() {
         String sound = FiltersClass.sSound;
         return sound;
     }
 
-    public void setPrint(RadioButton selected){
-        if (selected.isChecked()){
-            sPrint = "Yes";
+    public void setSelectedPrint(RadioButton selected) {
+        if (selected.isChecked()) {
+            FiltersClass.sPrint = "Yes";
         } else {
-            sPrint = "No";
+            FiltersClass.sPrint = "No";
         }
     }
 
-    public String getPrint(){
+    public String getSelectedPrint() {
         String print = FiltersClass.sPrint;
         return print;
-    }*/
 
+    }
 }

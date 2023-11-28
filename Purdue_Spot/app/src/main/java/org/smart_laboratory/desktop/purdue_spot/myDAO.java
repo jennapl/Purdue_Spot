@@ -10,12 +10,13 @@ import java.util.List;
 
 public class myDAO {
     private DBHelper dbHelper;
+    private String qSound, qPrint;
 
     public myDAO(Context context) {
         dbHelper = new DBHelper(context);
     }
 
-    public long insertData(FiltersClass data) {
+    public long insertData(myDBModel data) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -30,25 +31,29 @@ public class myDAO {
         return newRowId;
     }
 
-    public List<FiltersClass> getAllData() {
-        List<FiltersClass> dataList = new ArrayList<>();
+    public List<myDBModel> getAllData() {
+        List<myDBModel> dataList = new ArrayList<>();
+        FiltersClass fc = new FiltersClass();
 
-        int ageNum = 30;
+        qSound = fc.getSelectedSound();
+        qPrint =  fc.getSelectedPrint();
+
+        //int ageNum = 30;
 
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        /*Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE " + DBHelper.COLUMN_AGE
-                + " = " + ageNum, null);*/
-        Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME , null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE " + DBHelper.PRINTING_COL
+                + " = '" + qPrint +"'", null);
+        //Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME , null);
 
         if (cursor.moveToFirst()) {
             do {
-                FiltersClass fa = new FiltersClass();
-                fa.setId(cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL)));
-                fa.setName(cursor.getString(cursor.getColumnIndex(DBHelper.NAME_COL)));
-                fa.setPrint(cursor.getString(cursor.getColumnIndex(DBHelper.PRINTING_COL)));
-                fa.setSound(cursor.getString(cursor.getColumnIndex(DBHelper.SOUND_COL)));
+                myDBModel dbModel = new myDBModel();
+                dbModel.setId(cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL)));
+                dbModel.setName(cursor.getString(cursor.getColumnIndex(DBHelper.NAME_COL)));
+                dbModel.setPrint(cursor.getString(cursor.getColumnIndex(DBHelper.PRINTING_COL)));
+                dbModel.setSound(cursor.getString(cursor.getColumnIndex(DBHelper.SOUND_COL)));
 
-                dataList.add(fa);
+                dataList.add(dbModel);
             } while (cursor.moveToNext());
         }
         cursor.close();

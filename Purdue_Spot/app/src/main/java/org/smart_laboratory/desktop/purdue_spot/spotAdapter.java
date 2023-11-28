@@ -9,14 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
-import java.util.Map;
 
 public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
-    private List<FiltersClass> spotList;
+    private List<myDBModel> spotList;
     //private DBHelper dbHelper;
 
     //Getter for list
-    public spotAdapter(List<FiltersClass> dataList) {this.spotList = dataList;}
+    public spotAdapter(List<myDBModel> dataList) {this.spotList = dataList;}
 
     //Create viewholder
     @Override
@@ -28,7 +27,7 @@ public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
     //Set values for position in recycle viewer
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        FiltersClass spotRow = spotList.get(position);
+        myDBModel spotRow = spotList.get(position);
 
         //FiltersClass fc = new FiltersClass();
         holder.sName.setText(spotRow.getName());//

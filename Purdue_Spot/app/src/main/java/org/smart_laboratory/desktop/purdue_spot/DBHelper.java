@@ -58,7 +58,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         //GET VALUES
-        FiltersClass fa = new FiltersClass();
+        myDBModel fa = new myDBModel();
         String vPrint = fa.getPrint();
         String vSound = fa.getSound();
 

@@ -1,6 +1,5 @@
 package org.smart_laboratory.desktop.purdue_spot;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
@@ -14,9 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class ListActivity extends AppCompatActivity {
 
@@ -34,6 +31,7 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_page);
 
+        //myDBModel DBModel = new myDBModel();
         FiltersClass fa = new FiltersClass();
         dbHelper = new DBHelper(this);
 
@@ -54,8 +52,8 @@ public class ListActivity extends AppCompatActivity {
         //mSpotViewer.setAdapter(sAdapter);
 
         // SET TEXT VIEW
-        vPrint = fa.getPrint();
-        vSound = fa.getSound();
+        vPrint = fa.getSelectedPrint();
+        vSound = fa.getSelectedSound();
 
         flag1.setText("FLAG: Print " + vPrint + " Sound: " + vSound);
         dbHelper.queryData(qId, qName, qSound, qPrint);
@@ -127,7 +125,7 @@ public class ListActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             // Refresh the data after creating and populating the database
-            List<FiltersClass> spotList = dao.getAllData();
+            List<myDBModel> spotList = dao.getAllData();
             adapter = new spotAdapter(spotList);
             mSpotViewer.setLayoutManager(new LinearLayoutManager(ListActivity.this));
             mSpotViewer.setAdapter(adapter);
