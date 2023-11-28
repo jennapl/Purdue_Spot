@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
-    private List<Map<String, String>> logList;
-    private DBHelper dbHelper;
+    private List<FiltersClass> spotList;
+    //private DBHelper dbHelper;
 
     //Getter for list
-    public spotAdapter(List<Map<String, String>> songList) {this.logList = songList;}
+    public spotAdapter(List<FiltersClass> dataList) {this.spotList = dataList;}
 
     //Create viewholder
     @Override
@@ -28,17 +28,18 @@ public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
     //Set values for position in recycle viewer
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Map<String, String> logData = logList.get(position);
+        FiltersClass spotRow = spotList.get(position);
 
-        FiltersClass fc = new FiltersClass();
-        holder.sPrint.setText(fc.getPrint());
-        holder.sSound.setText(fc.getSound());
+        //FiltersClass fc = new FiltersClass();
+        holder.sName.setText(spotRow.getName());//
+        holder.sSound.setText(spotRow.getSound());
+        holder.sPrint.setText(spotRow.getPrint());
     }
 
     //Find list size
     @Override
     public int getItemCount() {
-        return logList.size();
+        return spotList.size();
     }
 
     //Instantiation

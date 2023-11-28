@@ -13,12 +13,12 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
 
     // Table
-    private static final String TABLE_NAME = "spotTbl";
+    public static final String TABLE_NAME = "spotTbl";
     // Columns
-    private static final String ID_COL = "spotID";
-    private static final String NAME_COL = "spotName";
-    private static final String PRINTING_COL = "spotPrinting";
-    private static final String SOUND_COL = "spotSoundLevel";
+    public static final String ID_COL = "spotID";
+    public static final String NAME_COL = "spotName";
+    public static final String PRINTING_COL = "spotPrinting";
+    public static final String SOUND_COL = "spotSoundLevel";
 
 
     public DBHelper(Context context) {

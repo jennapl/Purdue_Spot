@@ -1,6 +1,9 @@
 package org.smart_laboratory.desktop.purdue_spot;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +25,9 @@ public class ListActivity extends AppCompatActivity {
     Button mBack, mChange;
 
     TextView qId, qName, qSound, qPrint;
-    RecyclerView mSpotList;
+    private RecyclerView mSpotViewer;
+    private myDAO dao;
+    private spotAdapter adapter;
     DBHelper dbHelper;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,12 +44,14 @@ public class ListActivity extends AppCompatActivity {
         qName = (TextView) findViewById(R.id.nameTxt);
         qSound = (TextView) findViewById(R.id.soundTxt);
         qPrint = (TextView) findViewById(R.id.printTxt);
-        mSpotList = (RecyclerView) findViewById(R.id.listSpots);
-        mSpotList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        mSpotViewer = (RecyclerView) findViewById(R.id.spotsRv);
+        dao = new myDAO(this);
+        new DatabaseTask().execute();
+        //mSpotViewer.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         //Send list of DB values to adapter\
-        List<Map<String, String>> songList = new ArrayList<>();
-        spotAdapter sAdapter = new spotAdapter(songList);
-        mSpotList.setAdapter(sAdapter);
+        //List<Map<String, String>> songList = new ArrayList<>();
+        //spotAdapter sAdapter = new spotAdapter(songList);
+        //mSpotViewer.setAdapter(sAdapter);
 
         // SET TEXT VIEW
         vPrint = fa.getPrint();
@@ -71,5 +78,59 @@ public class ListActivity extends AppCompatActivity {
                 startActivity(aboutIntent);
             }
         });
+
+
+    }
+
+    private class DatabaseTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            // Create and populate the database in the background
+            DBHelper dbHelper = new DBHelper(ListActivity.this);
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            try {
+                db = openOrCreateDatabase(
+                        "spot.db.db",
+                        MainActivity.MODE_PRIVATE,
+                        null);
+            } catch(Exception ex) {
+                ex.printStackTrace();
+            }
+            // Create the table
+            db.execSQL("create table if not exists " + "spotTbl"
+                    + "(spotID char(4), "
+                    + " spotName char(50), "
+                    + " spotPrinting char(50), "
+                    + " spotSoundLevel char(50));");
+
+/*            // Insert sample data (replace this with your actual data)
+            ContentValues values = new ContentValues();
+            values.put(DBHelper.COLUMN_NAME, "John Doe");
+            values.put(DBHelper.COLUMN_AGE, 25);
+            values.put(DBHelper.COLUMN_EMAIL, "john.doe@example.com");
+            db.insert(DBHelper.TABLE_NAME, null, values);
+
+            values.clear();
+
+            values.put(DBHelper.COLUMN_NAME, "Jane Smith");
+            values.put(DBHelper.COLUMN_AGE, 30);
+            values.put(DBHelper.COLUMN_EMAIL, "jane.smith@example.com");
+            db.insert(DBHelper.TABLE_NAME, null, values);
+
+            // Close the database
+            db.close();
+
+            */
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            // Refresh the data after creating and populating the database
+            List<FiltersClass> spotList = dao.getAllData();
+            adapter = new spotAdapter(spotList);
+            mSpotViewer.setLayoutManager(new LinearLayoutManager(ListActivity.this));
+            mSpotViewer.setAdapter(adapter);
+        }
     }
 }

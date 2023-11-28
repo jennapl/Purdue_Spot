@@ -46,9 +46,9 @@ public class FiltersActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Move to Filters Page
-                FiltersClass fa = new FiltersClass();
+                /*FiltersClass fa = new FiltersClass();
                 fa.setSound(mSound);
-                fa.setPrint(mPrint);
+                fa.setPrint(mPrint);*/
 
                 Intent aboutIntent = new Intent(FiltersActivity.this, ListActivity.class);
                 startActivity(aboutIntent);
