@@ -19,6 +19,16 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String NAME_COL = "spotName";
     public static final String PRINTING_COL = "spotPrinting";
     public static final String SOUND_COL = "spotSoundLevel";
+    public static final String LIGHTING_COL = "spotLight";
+    public static final String CROWD_COL = "spotCrowd";
+    public static final String HOURS_COL = "spotHours";
+    public static final String ALWAYS_OPEN_COL = "spotOpen247";
+    public static final String STUDY_ROOM_COL = "spotStudyRoom";
+    public static final String ADDRESS_COl = "spotStreetAddress1";
+    public static final String CITY_COl = "spotCity";
+    public static final String STATE_COl = "spotState";
+    public static final String ZIP_COL = "spotZip";
+    public static final String LOCATION_COL = "spotLocation";
 
 
     public DBHelper(Context context) {
@@ -28,10 +38,20 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "create table if not exists " + TABLE_NAME
-                + "(spotID char(4), "
-                + " spotName char(50), "
-                + " spotPrinting char(50), "
-                + " spotSoundLevel char(50));";
+                + " (" + ID_COL + " char(4), "
+                + " " + NAME_COL + " char(50),"
+                + " " + PRINTING_COL + " char(50),"
+                + " " + SOUND_COL + " char(50),"
+                + " " + LIGHTING_COL + " char(50),"
+                + " " + CROWD_COL + " char(50),"
+                + " " + HOURS_COL + " char(100),"
+                + " " + ALWAYS_OPEN_COL + " char(50),"
+                + " " + STUDY_ROOM_COL + " char(50),"
+                + " " + ADDRESS_COl + " char(100),"
+                + " " + CITY_COl + " char(50),"
+                + " " + STATE_COl + " char(50),"
+                + " " + ZIP_COL + " char(50),"
+                + " " + LOCATION_COL + " char(50));";
         db.execSQL(query);
     }
 
@@ -41,13 +61,25 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addValues(String id, String name, String printing, String sound){
+    public void addValues(String id, String name, String printing, String sound,
+                          String light, String crowd, String hours, String open, String room,
+                          String addy, String city, String state, String zip, String location){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(ID_COL, id);
         values.put(NAME_COL, name);
         values.put(PRINTING_COL, printing);
         values.put(SOUND_COL, sound);
+        values.put(LIGHTING_COL, light);
+        values.put(CROWD_COL, crowd);
+        values.put(HOURS_COL, hours);
+        values.put(ALWAYS_OPEN_COL, open);
+        values.put(STUDY_ROOM_COL, room);
+        values.put(ADDRESS_COl, addy);
+        values.put(CITY_COl, city);
+        values.put(STATE_COl, state);
+        values.put(ZIP_COL, zip);
+        values.put(LOCATION_COL, location);
 
         db.insert(TABLE_NAME, null, values);
 

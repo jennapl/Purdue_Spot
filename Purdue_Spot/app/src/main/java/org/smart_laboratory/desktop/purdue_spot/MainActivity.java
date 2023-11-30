@@ -82,13 +82,32 @@ public class MainActivity extends AppCompatActivity {
 
         dbHelper.onCreate(sqlDB);
 
+
         // FLAG - Insert Data - keep to end
-        dbHelper.addValues("0001", "HICKS", "Yes", "Quiet");
-        dbHelper.addValues("0002", "WALC", "Yes", "Loud");
-        dbHelper.addValues("0003", "PMU", "No", "Loud");
-        dbHelper.addValues("0004", "GreyHouse", "No", "Loud");
-        dbHelper.addValues("0005", "Stewart", "No", "Quiet");
-        dbHelper.addValues("0006", "KRACH", "Yes", "Quiet");
+        dbHelper.addValues("0001", "HICKS", "Yes", "Quiet",
+                "Fluorescent Light", "Medium", "[INSERT LATER]",
+                "False", "True", "504 W State St., GROUND",
+                "West Lafayette", "IN", "47907", "Academic");
+        dbHelper.addValues("0002", "WALC", "Yes", "Loud",
+                "Natural Light", "Crowded", "[INSERT LATER]",
+                "True", "True", "340 Centennial Mall Dr.",
+                "West Lafayette", "IN", "47907", "Central");
+        dbHelper.addValues("0003", "PMU", "No", "Loud",
+                "Natural Light", "Crowded", "[INSERT LATER]",
+                "False", "False", "101 Grant St.",
+                "West Lafayette", "IN", "47907", "Academic");
+        dbHelper.addValues("0004", "GreyHouse", "No", "Loud",
+                "Natural Light", "Crowded", "[INSERT LATER]",
+                "False", "False", "100 Northwestern Ave.",
+                "West Lafayette", "IN", "47907", "Chauncey");
+        dbHelper.addValues("0005", "Stewart", "No", "Quiet",
+                "Fluorescent Light", "Medium", "[INSERT LATER]",
+                "False", "True", "128 Memorial Mall Dr.",
+                "West Lafayette", "IN", "47907", "Central");
+        dbHelper.addValues("0006", "KRACH", "Yes", "Quiet",
+                "Natural Light", "Crowded", "[INSERT LATER]",
+                "False", "True", "1198 3rd St.",
+                "West Lafayette", "IN", "47906", "Residential");
 
     }
 }

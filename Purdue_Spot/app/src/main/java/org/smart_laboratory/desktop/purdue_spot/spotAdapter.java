@@ -39,8 +39,8 @@ public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
         //FiltersClass fc = new FiltersClass();
         //holder.sId.setText(spotRow.getId());
         holder.sName.setText(spotRow.getName());//
-        holder.sSound.setText(spotRow.getSound());
-        holder.sPrint.setText(spotRow.getPrint());
+        //older.sSound.setText(spotRow.getLocation());
+        holder.sPrint.setText(spotRow.getLocation());
 
         holder.sViewMore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,8 +69,8 @@ public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             sName = itemView.findViewById(R.id.sName);
-            sPrint = itemView.findViewById(R.id.sPrint);
-            sSound = itemView.findViewById(R.id.sSound);
+            sPrint = itemView.findViewById(R.id.sLocation);
+            //sSound = itemView.findViewById(R.id.sSound);
             sViewMore = itemView.findViewById(R.id.infoBtn);
         }
     }

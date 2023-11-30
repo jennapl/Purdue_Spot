@@ -56,6 +56,7 @@ public class myDAO {
                 dbModel.setName(cursor.getString(cursor.getColumnIndex(DBHelper.NAME_COL)));
                 dbModel.setPrint(cursor.getString(cursor.getColumnIndex(DBHelper.PRINTING_COL)));
                 dbModel.setSound(cursor.getString(cursor.getColumnIndex(DBHelper.SOUND_COL)));
+                dbModel.setLocation(cursor.getString(cursor.getColumnIndex(DBHelper.LOCATION_COL)));
 
                 dataList.add(dbModel);
             } while (cursor.moveToNext());

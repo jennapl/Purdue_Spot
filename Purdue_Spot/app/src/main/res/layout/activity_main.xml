@@ -13,6 +13,12 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +26,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="176dp"
+            android:layout_height="156dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -28,30 +34,47 @@
                 android:id="@+id/titleMainTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:text="Welcome to"
-                android:textSize="25dp" />
+                android:textColor="@color/black"
+                android:textSize="40dp" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:text="PurdueSpot!"
-                android:textSize="25dp" />
+                android:textColor="@color/black"
+                android:textSize="50dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@color/black"
+            android:orientation="vertical"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="15dp">
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:text="Pick a Spot!"
                 android:textSize="25dp" />
@@ -61,8 +84,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-light"
                 android:gravity="center"
-                android:text="PickASpot!"
+                android:text="studySpot!"
+                android:textColor="@color/black"
                 android:textSize="25dp" />
         </LinearLayout>
 
