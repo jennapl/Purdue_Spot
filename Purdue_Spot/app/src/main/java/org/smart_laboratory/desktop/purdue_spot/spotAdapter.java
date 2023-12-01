@@ -35,13 +35,12 @@ public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         myDBModel spotRow = spotList.get(position);
-        //String clickedId = spotRow.getId();
-        //FiltersClass fc = new FiltersClass();
-        //holder.sId.setText(spotRow.getId());
-        holder.sName.setText(spotRow.getName());//
-        //older.sSound.setText(spotRow.getLocation());
-        holder.sPrint.setText(spotRow.getLocation());
 
+        // Setting text in Adapter
+        holder.sName.setText(spotRow.getName());
+        holder.sLocation.setText(spotRow.getLocation());
+
+        // Action Listener for View More Button, moved to SpotActivity
         holder.sViewMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,13 +63,14 @@ public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
 
     //Instantiation
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView sId, sName, sPrint, sSound;
+        TextView sId, sName, sLocation;
         Button sViewMore;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            // Instantiate Adapter Elements
             sName = itemView.findViewById(R.id.sName);
-            sPrint = itemView.findViewById(R.id.sLocation);
-            //sSound = itemView.findViewById(R.id.sSound);
+            sLocation = itemView.findViewById(R.id.sLocation);
             sViewMore = itemView.findViewById(R.id.infoBtn);
         }
     }

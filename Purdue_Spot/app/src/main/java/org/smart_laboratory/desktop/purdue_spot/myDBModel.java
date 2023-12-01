@@ -1,7 +1,7 @@
 package org.smart_laboratory.desktop.purdue_spot;
 
 public class myDBModel {
-    private String sId, sName, sPrint, sSound, sLocation;
+    private String sId, sName, sPrint, sSound, sLocation, sCrowd, sLight;
 
     public myDBModel() {
     }
@@ -54,6 +54,22 @@ public class myDBModel {
 
     public void setLocation(String loc) {
         this.sLocation = loc;
+    }
+
+    public String getCrowd() {
+        return sCrowd;
+    }
+
+    public void setCrowd(String crowd) {
+        this.sCrowd = crowd;
+    }
+
+    public String getLight() {
+        return sLight;
+    }
+
+    public void setLight(String light) {
+        this.sLight = light;
     }
 
 

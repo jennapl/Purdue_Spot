@@ -33,145 +33,334 @@
             android:textColor="@color/black"
             android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/sNameTxt"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="SpotName"
-            android:textColor="@color/black"
-            android:textSize="60dp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/sIdTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+            <TextView
+                android:id="@+id/sNameTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="SpotName"
+                android:textColor="@color/black"
+                android:textSize="60dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/sSoundTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="13dp"
+                android:background="@color/black"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/sPrintTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/sLightTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/sCrowdTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/sIdTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingStart="10dp"
+                    android:text="TextView"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/sStudyTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/sHoursTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Location:" />
 
-        <TextView
-            android:id="@+id/sOpenTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/sLocationTxt"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:paddingStart="5dp"
+                        android:text="TextView"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+                </LinearLayout>
 
-        <TextView
-            android:id="@+id/sAddressTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/sHoursTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingStart="10dp"
+                    android:text="TextView"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/sCityTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/sStateTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Spot Information:"
+                        android:textSize="25dp" />
 
-        <TextView
-            android:id="@+id/sZipTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="left"
+                        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/sLocationTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:paddingStart="10dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+                        <TextView
+                            android:id="@+id/textView23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="Crowd Level:"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/sCrowdTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:paddingStart="5dp"
+                            android:text="TextView"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="Lighting Type:"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/sLightTxt"
+                            android:layout_width="164dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:paddingStart="5dp"
+                            android:text="TextView"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView25"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="Open 24/7:"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/sOpenTxt"
+                            android:layout_width="167dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:paddingStart="5dp"
+                            android:text="TextView"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Private Rooms"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/sStudyTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:fontFamily="sans-serif-light"
+                        android:paddingStart="10dp"
+                        android:text="TextView"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Amenities"
+                        android:textSize="25dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView26"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Printers:"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/sPrintTxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-light"
+                                android:paddingStart="5dp"
+                                android:text="TextView"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView27"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sound Level:"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/sSoundTxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-light"
+                                android:paddingStart="10dp"
+                                android:text="TextView"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="198dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Address:"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/sAddressTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:fontFamily="sans-serif-light"
+                        android:paddingStart="10dp"
+                        android:text="TextView"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/sCityTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:fontFamily="sans-serif-light"
+                            android:paddingStart="10dp"
+                            android:text="TextView"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/sStateTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:paddingStart="10dp"
+                            android:text="TextView"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/sZipTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:paddingStart="10dp"
+                            android:text="TextView"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 

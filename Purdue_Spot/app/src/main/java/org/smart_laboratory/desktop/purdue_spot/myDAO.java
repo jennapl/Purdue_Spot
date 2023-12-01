@@ -11,7 +11,7 @@ import java.util.List;
 
 public class myDAO {
     private DBHelper dbHelper;
-    private String qSound, qPrint;
+    private String qSound, qPrint, qLocation, qLight, qCrowd;
 
     public myDAO(Context context) {
         dbHelper = new DBHelper(context);
@@ -39,14 +39,20 @@ public class myDAO {
 
         qSound = fc.getSelectedSound();
         qPrint =  fc.getSelectedPrint();
+        qLocation = fc.getSelectedLocation();
+        qLight = fc.getSelectedLight();
+        qCrowd = fc.getSelectedCrowd();
 
         //int ageNum = 30;
 
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE " + DBHelper.PRINTING_COL
-                + " = '" + qPrint +"' AND "
-                + DBHelper.SOUND_COL + " = '"
-                + qSound + "'", null);
+                + " = '" + qPrint + "' AND "
+                + DBHelper.SOUND_COL + " = '" + qSound + "' AND "
+                + DBHelper.LOCATION_COL + " = '" + qLocation + "' AND "
+                + DBHelper.LIGHTING_COL + " = '" + qLight //+ "' AND "
+                //+ DBHelper.CROWD_COL + " = '" + qCrowd
+                + "'", null);
         //Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME , null);
 
         if (cursor.moveToFirst()) {
@@ -57,6 +63,8 @@ public class myDAO {
                 dbModel.setPrint(cursor.getString(cursor.getColumnIndex(DBHelper.PRINTING_COL)));
                 dbModel.setSound(cursor.getString(cursor.getColumnIndex(DBHelper.SOUND_COL)));
                 dbModel.setLocation(cursor.getString(cursor.getColumnIndex(DBHelper.LOCATION_COL)));
+                dbModel.setLight(cursor.getString(cursor.getColumnIndex(DBHelper.LIGHTING_COL)));
+                dbModel.setCrowd(cursor.getString(cursor.getColumnIndex(DBHelper.CROWD_COL)));
 
                 dataList.add(dbModel);
             } while (cursor.moveToNext());
