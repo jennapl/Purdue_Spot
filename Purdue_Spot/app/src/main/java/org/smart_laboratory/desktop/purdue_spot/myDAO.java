@@ -16,8 +16,6 @@ public class myDAO {
     public myDAO(Context context) {
         dbHelper = new DBHelper(context);
     }
-
-    //EVENTUALLY DELETE - Used to insert data in DB
     public long insertData(myDBModel data) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -43,8 +41,6 @@ public class myDAO {
         qLight = fc.getSelectedLight();
         qCrowd = fc.getSelectedCrowd();
 
-        //int ageNum = 30;
-
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE " + DBHelper.PRINTING_COL
                 + " = '" + qPrint + "' AND "
@@ -53,7 +49,6 @@ public class myDAO {
                 + DBHelper.LIGHTING_COL + " = '" + qLight //+ "' AND "
                 //+ DBHelper.CROWD_COL + " = '" + qCrowd
                 + "'", null);
-        //Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME , null);
 
         if (cursor.moveToFirst()) {
             do {

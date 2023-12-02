@@ -72,28 +72,4 @@ public class myDBModel {
         this.sLight = light;
     }
 
-
-    //SETTERS
-    /*public void setSound(Spinner selected){
-        sSound = selected.getSelectedItem().toString();
-    }
-
-    public String getSound(){
-        String sound = FiltersClass.sSound;
-        return sound;
-    }
-
-    public void setPrint(RadioButton selected){
-        if (selected.isChecked()){
-            sPrint = "Yes";
-        } else {
-            sPrint = "No";
-        }
-    }
-
-    public String getPrint(){
-        String print = FiltersClass.sPrint;
-        return print;
-    }*/
-
 }

@@ -15,7 +15,6 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button spotPickBtn;
-
     DBHelper dbHelper;
     SQLiteDatabase sqlDB;
     String dbName;
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 "Natural Light", "Crowded", "[INSERT LATER]",
                 "False", "False", "100 Northwestern Ave.",
                 "West Lafayette", "IN", "47907", "Chauncey");
-        dbHelper.addValues("0005", "Stewart", "No", "Quiet",
+        dbHelper.addValues("0005", "Stewart", "Yes", "Quiet",
                 "Fluorescent Light", "Medium", "[INSERT LATER]",
                 "False", "True", "128 Memorial Mall Dr.",
                 "West Lafayette", "IN", "47907", "Central");

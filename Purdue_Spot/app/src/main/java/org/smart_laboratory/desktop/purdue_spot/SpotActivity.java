@@ -16,7 +16,6 @@ public class SpotActivity extends AppCompatActivity {
     Button mBackBtn;
     static String  cSpotId;
     private DBHelper dbHelper;
-    //static String fName, fPrint, fSound, fId;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,12 +60,6 @@ public class SpotActivity extends AppCompatActivity {
 
         if (cursor.moveToFirst()) {
             do {
-                /*myDBModel dbModel = new myDBModel();
-                dbModel.setId(cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL)));
-                dbModel.setName(cursor.getString(cursor.getColumnIndex(DBHelper.NAME_COL)));
-                dbModel.setPrint(cursor.getString(cursor.getColumnIndex(DBHelper.PRINTING_COL)));
-                dbModel.setSound(cursor.getString(cursor.getColumnIndex(DBHelper.SOUND_COL)));
-*/
                 mIdTxt.setText(cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL)));
                 mNameTxt.setText(cursor.getString(cursor.getColumnIndex(DBHelper.NAME_COL)));
                 mPrintTxt.setText(cursor.getString(cursor.getColumnIndex(DBHelper.PRINTING_COL)));

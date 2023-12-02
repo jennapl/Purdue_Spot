@@ -57,13 +57,6 @@ public class ListActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-        //DELETE ME
-        //mSpotViewer.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        //Send list of DB values to adapter\
-        //List<Map<String, String>> songList = new ArrayList<>();
-        //spotAdapter sAdapter = new spotAdapter(songList);
-        //mSpotViewer.setAdapter(sAdapter);
-
         // SET TEXT VIEW -- Flag
         vPrint = fa.getSelectedPrint();
         vSound = fa.getSelectedSound();
@@ -90,63 +83,5 @@ public class ListActivity extends AppCompatActivity {
                 startActivity(aboutIntent);
             }
         });
-
-
     }
-//DELETE ME
-/*    private class DatabaseTask extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... voids) {
-            // Create and populate the database in the background
-            DBHelper dbHelper = new DBHelper(ListActivity.this);
-            SQLiteDatabase db = dbHelper.getWritableDatabase();
-            try {
-                db = openOrCreateDatabase(
-                        "spot.db.db",
-                        MainActivity.MODE_PRIVATE,
-                        null);
-            } catch(Exception ex) {
-                ex.printStackTrace();
-            }
-            // Create the table
-            db.execSQL("create table if not exists " + "spotTbl"
-                    + "(spotID char(4), "
-                    + " spotName char(50), "
-                    + " spotPrinting char(50), "
-                    + " spotSoundLevel char(50));");
-
-*//*            // Insert sample data (replace this with your actual data)
-            ContentValues values = new ContentValues();
-            values.put(DBHelper.COLUMN_NAME, "John Doe");
-            values.put(DBHelper.COLUMN_AGE, 25);
-            values.put(DBHelper.COLUMN_EMAIL, "john.doe@example.com");
-            db.insert(DBHelper.TABLE_NAME, null, values);
-
-            values.clear();
-
-            values.put(DBHelper.COLUMN_NAME, "Jane Smith");
-            values.put(DBHelper.COLUMN_AGE, 30);
-            values.put(DBHelper.COLUMN_EMAIL, "jane.smith@example.com");
-            db.insert(DBHelper.TABLE_NAME, null, values);
-
-            // Close the database
-            db.close();
-
-            *//*
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            // Refresh the data after creating and populating the database
-            List<myDBModel> spotList = dao.getAllData();
-            adapter = new spotAdapter(spotList);
-            mSpotViewer.setLayoutManager(new LinearLayoutManager(ListActivity.this));
-            mSpotViewer.setAdapter(adapter);
-            if (spotList.isEmpty()){
-                Toast.makeText(ListActivity.this, "No spots match your filters.",
-                        Toast.LENGTH_LONG).show();
-            }
-        }
-    }*/
 }
