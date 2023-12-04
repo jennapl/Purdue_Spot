@@ -14,7 +14,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button spotPickBtn;
+    Button spotPickBtn, randomBtn, aboutBtn;
     DBHelper dbHelper;
     SQLiteDatabase sqlDB;
     String dbName;
@@ -54,10 +54,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Move to Filters Page
-                Intent aboutIntent = new Intent(MainActivity.this, FiltersActivity.class);
+                Intent filtersIntent = new Intent(MainActivity.this, FiltersActivity.class);
+                startActivity(filtersIntent);
+            }
+        });
+
+        randomBtn = (Button) findViewById(R.id.randomBtn);
+
+        aboutBtn = (Button) findViewById(R.id.aboutBtn);
+        aboutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Move to About Page
+                Intent aboutIntent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(aboutIntent);
             }
         });
+
 
 
         //SQL
