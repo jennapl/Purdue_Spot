@@ -19,7 +19,6 @@ import java.util.List;
 public class ListActivity extends AppCompatActivity {
 
     TextView flag1;
-    String vPrint, vSound;
     Button mBack, mChange;
 
     TextView qId, qName, qSound, qPrint;
@@ -57,12 +56,12 @@ public class ListActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-        // SET TEXT VIEW -- Flag
+        /*// SET TEXT VIEW -- Flag
         vPrint = fa.getSelectedPrint();
         vSound = fa.getSelectedSound();
 
         flag1.setText("FLAG: Print " + vPrint + " Sound: " + vSound);
-        dbHelper.queryData(qId, qName, qSound, qPrint);
+        dbHelper.queryData(qId, qName, qSound, qPrint);*/
 
         //Change Activity to Filters
         mChange.setOnClickListener(new View.OnClickListener() {

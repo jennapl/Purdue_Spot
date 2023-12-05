@@ -14,12 +14,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class FiltersActivity extends AppCompatActivity {
     Button mSearch, mBack;
-    RadioButton mPrint;
-    Spinner mSound, mLocation, mLighting, mCrowd;
+    RadioButton mPrint, mFood, mComp, mQuiet, mOpen;
+    Spinner mLocation, mLighting, mCrowd;
 
     String [] soundLevels = {"Quiet", "Loud"};
-    String [] crowdLevel = {"Crowded", "Medium"};
-    String [] lightTypes = {"Natural Light", "Fluorescent Light"};
+    String [] crowdLevel = {"Crowded", "Medium", "Empty"};
+    String [] lightTypes = {"Natural Light", "Dim", "Fluorescent Light"};
     String [] locationTypes = {"Academic", "Central", "Residential", "Chauncey"};
 
 
@@ -42,9 +42,11 @@ public class FiltersActivity extends AppCompatActivity {
 
 
         mPrint = (RadioButton) findViewById(R.id.printRb);
+        mFood = (RadioButton) findViewById(R.id.foodRb);
+        mComp = (RadioButton) findViewById(R.id.uniCompRb);
+        mQuiet = (RadioButton) findViewById(R.id.quietRb);
+        mOpen = (RadioButton) findViewById(R.id.openRb);
 
-        mSound = (Spinner)findViewById(R.id.soundSpin);
-        mSound.setAdapter(soundAdapter);
         mLocation = (Spinner) findViewById(R.id.locSpin);
         mLocation.setAdapter(locAdapter);
         mLighting = (Spinner) findViewById(R.id.lightSpin);
@@ -67,11 +69,14 @@ public class FiltersActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Move to Filters Page
                 FiltersClass fc = new FiltersClass();
-                fc.setSelectedSound(mSound);
                 fc.setSelectedPrint(mPrint);
                 fc.setSelectedLocation(mLocation);
                 fc.setSelectedLight(mLighting);
                 fc.setSelectedCrowd(mCrowd);
+                fc.setSelectedFood(mFood);
+                fc.setSelectedComp(mComp);
+                fc.setSelectedOpen(mOpen);
+                fc.setSelectedQuiet(mQuiet);
 
                 Intent aboutIntent = new Intent(FiltersActivity.this, ListActivity.class);
                 startActivity(aboutIntent);

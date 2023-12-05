@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 "Natural Light", "Crowded", "[INSERT LATER]",
                 "False", "True", "1198 3rd St.",
                 "West Lafayette", "IN", "47906", "Residential");*/
-        dbHelper.addValues("0001", "HICKS", "Yes", "Quiet",
+        dbHelper.addValues("0001", "HICKS", "Yes", "Yes",
 
                 "Fluorescent Light", "Medium", "[INSERT LATER]",
 
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 " No", " Yes");
 
 
-        dbHelper.addValues("0002", "WALC", "Yes", "Loud",
+        dbHelper.addValues("0002", "WALC", "Yes", "No",
 
                 "Natural Light", "Crowded", "[INSERT LATER]",
 
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 "Yes", "Yes");
 
 
-        dbHelper.addValues("0003", "PMU", "No", "Loud",
+        dbHelper.addValues("0003", "PMU", "No", "No",
 
                 "Natural Light", "Crowded", "[INSERT LATER]",
 
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 "Yes", "No");
 
 
-        dbHelper.addValues("0004", "GreyHouse", "No", "Loud",
+        dbHelper.addValues("0004", "GreyHouse", "No", "No",
 
                 "Natural Light", "Crowded", "[INSERT LATER]",
 
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                 "Yes", "No");
 
 
-        dbHelper.addValues("0005", "Stewart", "Yes", "Quiet",
+        dbHelper.addValues("0005", "Stewart", "Yes", "Yes",
 
                 "Fluorescent Light", "Medium", "[INSERT LATER]",
 
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 "No", "Yes");
 
 
-        dbHelper.addValues("0006", "KRACH", "Yes", "Quiet",
+        dbHelper.addValues("0006", "KRACH", "Yes", "Yes",
 
                 "Natural Light", "Crowded", "[INSERT LATER]",
 
@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
                 "No", "No");
 
 
-        dbHelper.addValues("0007", "Chaney", "Yes", "Quiet",
+        dbHelper.addValues("0007", "Chaney", "Yes", "Yes",
 
                 "Natural Light",  "Empty", "[INSERT LATER]",
 
@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        dbHelper.addValues("0008", "Starbucks (EE)", "No", "Loud",
+        dbHelper.addValues("0008", "Starbucks (EE)", "No", "No",
 
                 "Fluorescent Light", "Crowded", "[INSERT LATER]",
 
@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        dbHelper.addValues("0009", "Knoy", "Yes", "Quiet",
+        dbHelper.addValues("0009", "Knoy", "Yes", "Yes",
 
                 "Dim", "Medium", "[INSERT LATER]",
 
@@ -221,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
                 "No", "Yes");
 
 
-        dbHelper.addValues("0010", "Dudley", "Yes", "Quiet",
+        dbHelper.addValues("0010", "Dudley", "Yes", "Yes",
 
                 "Natural Light", "Crowded", "[INSERT LATER]",
 
@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
                 "No", "Yes");
 
 
-        dbHelper.addValues("0011", "Hillenbrand", "Yes",  "Quiet",
+        dbHelper.addValues("0011", "Hillenbrand", "Yes",  "Yes",
 
                 "Dim", "Empty", "[INSERT LATER]",
 
@@ -243,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
                 "Yes", "No");
 
 
-        dbHelper.addValues("0012", "Honors", "Yes", "Quiet",
+        dbHelper.addValues("0012", "Honors", "Yes", "Yes",
 
                 "Fluorescent Light", "Medium", "[INSERT LATER]",
 
@@ -252,57 +252,5 @@ public class MainActivity extends AppCompatActivity {
                 "West Lafayette", "IN", "47906", "Central",
 
                 "No", "No");
-
-
-        dbHelper.addValues("0013", "ThirdStreet", "No", "Crowded",
-
-                "Natural Light", "Loud", "[INSERT LATER]",
-
-                "False", "False", "1196 3rd Street",
-
-                "West Lafayette", "IN", "47906", "Central",
-
-                "Yes", "No");
-
-
-        dbHelper.addValues("0014", "Vienna", "No", "Crowded",
-
-                "Dim", "Medium", "[INSERT LATER]",
-
-                "False", "False", "208 South St",
-
-                "West Lafayette", "IN", "47906", "Chauncey",
-
-                "Yes", "No");
-
-
-        dbHelper.addValues("0015", "Grey House(State)", "No", "Crowded",
-
-                "Natural Light", "Quiet", "[INSERT LATER]",
-
-                "False", "False", "1000 Mitch Daniels Blvd",
-
-                "West Lafayette", "IN", "47906", "Chauncey",
-
-                "Yes", "No");
-
-
-        dbHelper.addValues("0016", "Cosi", "No", "Crowded",
-                "Natural Light", "Loud", "[INSERT LATER]",
-                "False", "False", "1101 3rd Street",
-                "West Lafayette", "IN", "47906", "Central",
-                "Yes", "No");
-
-
-        dbHelper.addValues("0017", "Meredith South", "No", "Medium",
-
-                "Natural Light", "Medium", "[INSERT LATER]",
-
-                "False", "False", "1225 1st Street",
-
-                "West Lafayette", "IN", "47906", "Residential",
-
-                "Yes", "No");
-
     }
 }

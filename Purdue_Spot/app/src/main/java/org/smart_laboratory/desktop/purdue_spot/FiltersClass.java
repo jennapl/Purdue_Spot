@@ -9,20 +9,11 @@ public class FiltersClass {
 
     private String sId;
     private String sName;
-    private static String sPrint, sSound, sLocation, sCrowd, sLight;
+    private static String sPrint, sLocation, sCrowd, sLight, sFood, sQuiet, sComp, sOpen;
 
     public FiltersClass() {
     }
 
-
-    public void setSelectedSound(Spinner selected) {
-        FiltersClass.sSound = selected.getSelectedItem().toString();
-    }
-
-    public String getSelectedSound() {
-        String sound = FiltersClass.sSound;
-        return sound;
-    }
 
     public void setSelectedPrint(RadioButton selected) {
         if (selected.isChecked()) {
@@ -64,4 +55,57 @@ public class FiltersClass {
         String print = FiltersClass.sLight;
         return print;
     }
+
+    public void setSelectedFood(RadioButton selected) {
+        if (selected.isChecked()) {
+            FiltersClass.sFood = "Yes";
+        } else {
+            FiltersClass.sFood = "No";
+        }
+    }
+
+    public String getSelectedFood() {
+        String print = FiltersClass.sFood;
+        return print;
+    }
+
+    public void setSelectedQuiet(RadioButton selected) {
+        if (selected.isChecked()) {
+            FiltersClass.sQuiet = "Yes";
+        } else {
+            FiltersClass.sQuiet = "No";
+        }
+    }
+
+    public String getSelectedQuiet() {
+        String print = FiltersClass.sQuiet;
+        return print;
+    }
+
+    public void setSelectedComp(RadioButton selected) {
+        if (selected.isChecked()) {
+            FiltersClass.sComp = "Yes";
+        } else {
+            FiltersClass.sComp = "No";
+        }
+    }
+
+    public String getSelectedComp() {
+        String print = FiltersClass.sComp;
+        return print;
+    }
+
+    public void setSelectedOpen(RadioButton selected) {
+        if (selected.isChecked()) {
+            FiltersClass.sOpen = "True";
+        } else {
+            FiltersClass.sOpen = "False";
+        }
+    }
+
+    public String getSelectedOpen() {
+        String print = FiltersClass.sOpen;
+        return print;
+    }
+
 }

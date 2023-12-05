@@ -11,7 +11,7 @@ import java.util.List;
 
 public class myDAO {
     private DBHelper dbHelper;
-    private String qSound, qPrint, qLocation, qLight, qCrowd;
+    private String qSound, qPrint, qLocation, qLight, qCrowd, qFood, qComp, qOpen;
 
     public myDAO(Context context) {
         dbHelper = new DBHelper(context);
@@ -24,6 +24,9 @@ public class myDAO {
         values.put(DBHelper.NAME_COL, data.getName());
         values.put(DBHelper.SOUND_COL, data.getSound());
         values.put(DBHelper.PRINTING_COL, data.getPrint());
+        values.put(DBHelper.FOOD_COL, data.getFood());
+        values.put(DBHelper.ALWAYS_OPEN_COL, data.getOpen());
+        values.put(DBHelper.COMP_COL, data.getComp());
 
         long newRowId = db.insert(DBHelper.TABLE_NAME, null, values);
 
@@ -35,19 +38,25 @@ public class myDAO {
         List<myDBModel> dataList = new ArrayList<>();
         FiltersClass fc = new FiltersClass();
 
-        qSound = fc.getSelectedSound();
+        qSound = fc.getSelectedQuiet();
         qPrint =  fc.getSelectedPrint();
         qLocation = fc.getSelectedLocation();
         qLight = fc.getSelectedLight();
         qCrowd = fc.getSelectedCrowd();
+        qFood = fc.getSelectedFood();
+        qOpen = fc.getSelectedOpen();
+        qComp = fc.getSelectedComp();
 
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE " + DBHelper.PRINTING_COL
                 + " = '" + qPrint + "' AND "
                 + DBHelper.SOUND_COL + " = '" + qSound + "' AND "
                 + DBHelper.LOCATION_COL + " = '" + qLocation + "' AND "
-                + DBHelper.LIGHTING_COL + " = '" + qLight //+ "' AND "
-                //+ DBHelper.CROWD_COL + " = '" + qCrowd
+                + DBHelper.LIGHTING_COL + " = '" + qLight + "' AND "
+                + DBHelper.CROWD_COL + " = '" + qCrowd + "' AND "
+                + DBHelper.FOOD_COL + " = '" + qFood + "' AND "
+                + DBHelper.ALWAYS_OPEN_COL + " = '" + qOpen + "' AND "
+                + DBHelper.COMP_COL + " = '" + qComp
                 + "'", null);
 
         if (cursor.moveToFirst()) {
@@ -60,6 +69,9 @@ public class myDAO {
                 dbModel.setLocation(cursor.getString(cursor.getColumnIndex(DBHelper.LOCATION_COL)));
                 dbModel.setLight(cursor.getString(cursor.getColumnIndex(DBHelper.LIGHTING_COL)));
                 dbModel.setCrowd(cursor.getString(cursor.getColumnIndex(DBHelper.CROWD_COL)));
+                dbModel.setFood(cursor.getString(cursor.getColumnIndex(DBHelper.FOOD_COL)));
+                dbModel.setComp(cursor.getString(cursor.getColumnIndex(DBHelper.COMP_COL)));
+                dbModel.setOpen(cursor.getString(cursor.getColumnIndex(DBHelper.ALWAYS_OPEN_COL)));
 
                 dataList.add(dbModel);
             } while (cursor.moveToNext());
