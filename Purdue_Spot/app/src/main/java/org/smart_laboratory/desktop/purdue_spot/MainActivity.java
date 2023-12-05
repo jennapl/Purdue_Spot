@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // FLAG - Insert Data - keep to end
-        dbHelper.addValues("0001", "HICKS", "Yes", "Quiet",
+        /*dbHelper.addValues("0001", "HICKS", "Yes", "Quiet",
                 "Fluorescent Light", "Medium", "[INSERT LATER]",
                 "False", "True", "504 W State St., GROUND",
                 "West Lafayette", "IN", "47907", "Academic");
@@ -119,7 +119,190 @@ public class MainActivity extends AppCompatActivity {
         dbHelper.addValues("0006", "KRACH", "Yes", "Quiet",
                 "Natural Light", "Crowded", "[INSERT LATER]",
                 "False", "True", "1198 3rd St.",
-                "West Lafayette", "IN", "47906", "Residential");
+                "West Lafayette", "IN", "47906", "Residential");*/
+        dbHelper.addValues("0001", "HICKS", "Yes", "Quiet",
+
+                "Fluorescent Light", "Medium", "[INSERT LATER]",
+
+                "False", "True", "504 W State St., GROUND",
+
+                "West Lafayette", "IN", "47907", "Academic",
+
+                " No", " Yes");
+
+
+        dbHelper.addValues("0002", "WALC", "Yes", "Loud",
+
+                "Natural Light", "Crowded", "[INSERT LATER]",
+
+                "True", "True", "340 Centennial Mall Dr.",
+
+                "West Lafayette", "IN", "47907", "Central",
+
+                "Yes", "Yes");
+
+
+        dbHelper.addValues("0003", "PMU", "No", "Loud",
+
+                "Natural Light", "Crowded", "[INSERT LATER]",
+
+                "False", "False", "101 Grant St.",
+
+                "West Lafayette", "IN", "47907", "Academic",
+
+                "Yes", "No");
+
+
+        dbHelper.addValues("0004", "GreyHouse", "No", "Loud",
+
+                "Natural Light", "Crowded", "[INSERT LATER]",
+
+                "False", "False", "100 Northwestern Ave.",
+
+                "West Lafayette", "IN", "47907", "Chauncey",
+
+                "Yes", "No");
+
+
+        dbHelper.addValues("0005", "Stewart", "Yes", "Quiet",
+
+                "Fluorescent Light", "Medium", "[INSERT LATER]",
+
+                "False", "True", "128 Memorial Mall Dr.",
+
+                "West Lafayette", "IN", "47907", "Central",
+
+                "No", "Yes");
+
+
+        dbHelper.addValues("0006", "KRACH", "Yes", "Quiet",
+
+                "Natural Light", "Crowded", "[INSERT LATER]",
+
+                "False", "True", "1198 3rd St.",
+
+                "West Lafayette", "IN", "47906", "Residential",
+
+                "No", "No");
+
+
+        dbHelper.addValues("0007", "Chaney", "Yes", "Quiet",
+
+                "Natural Light",  "Empty", "[INSERT LATER]",
+
+                "False", "True", "460 N University St",
+
+                "West Lafayette", "IN", "47907",  "Academic",
+
+                "No", "Yes");
+
+
+
+        dbHelper.addValues("0008", "Starbucks (EE)", "No", "Loud",
+
+                "Fluorescent Light", "Crowded", "[INSERT LATER]",
+
+                "False", "False", "501 Northwestern Ave",
+
+                "West Lafayette", "IN", "47906", "Academic",
+
+                "Yes", "No");
+
+
+
+        dbHelper.addValues("0009", "Knoy", "Yes", "Quiet",
+
+                "Dim", "Medium", "[INSERT LATER]",
+
+                "False", "False", "401 Grant St",
+
+                "West Lafayette", "IN", "47906",  "Academic",
+
+                "No", "Yes");
+
+
+        dbHelper.addValues("0010", "Dudley", "Yes", "Quiet",
+
+                "Natural Light", "Crowded", "[INSERT LATER]",
+
+                "True", "False", "420 Central Dr",
+
+                "West Lafayette", "IN", "47906", "Academic",
+
+                "No", "Yes");
+
+
+        dbHelper.addValues("0011", "Hillenbrand", "Yes",  "Quiet",
+
+                "Dim", "Empty", "[INSERT LATER]",
+
+                "True", "False", "1301 3rd Street",
+
+                "West Lafayette", "IN", "47906", "Residential",
+
+                "Yes", "No");
+
+
+        dbHelper.addValues("0012", "Honors", "Yes", "Quiet",
+
+                "Fluorescent Light", "Medium", "[INSERT LATER]",
+
+                "False", "False", "1101 3rd Street",
+
+                "West Lafayette", "IN", "47906", "Central",
+
+                "No", "No");
+
+
+        dbHelper.addValues("0013", "ThirdStreet", "No", "Crowded",
+
+                "Natural Light", "Loud", "[INSERT LATER]",
+
+                "False", "False", "1196 3rd Street",
+
+                "West Lafayette", "IN", "47906", "Central",
+
+                "Yes", "No");
+
+
+        dbHelper.addValues("0014", "Vienna", "No", "Crowded",
+
+                "Dim", "Medium", "[INSERT LATER]",
+
+                "False", "False", "208 South St",
+
+                "West Lafayette", "IN", "47906", "Chauncey",
+
+                "Yes", "No");
+
+
+        dbHelper.addValues("0015", "Grey House(State)", "No", "Crowded",
+
+                "Natural Light", "Quiet", "[INSERT LATER]",
+
+                "False", "False", "1000 Mitch Daniels Blvd",
+
+                "West Lafayette", "IN", "47906", "Chauncey",
+
+                "Yes", "No");
+
+
+        dbHelper.addValues("0016", "Cosi", "No", "Crowded",
+                "Natural Light", "Loud", "[INSERT LATER]",
+                "False", "False", "1101 3rd Street",
+                "West Lafayette", "IN", "47906", "Central",
+                "Yes", "No");
+
+
+        dbHelper.addValues("0017", "Meredith South", "No", "Medium",
+
+                "Natural Light", "Medium", "[INSERT LATER]",
+
+                "False", "False", "1225 1st Street",
+
+                "West Lafayette", "IN", "47906", "Residential",
+
+                "Yes", "No");
 
     }
 }
