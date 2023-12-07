@@ -47,6 +47,17 @@ public class MainActivity extends AppCompatActivity {
                         1);
             }
         }
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.INTERNET)!=
+                PackageManager.PERMISSION_GRANTED) {
+            if
+            (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.INTERNET)
+            ) {
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.INTERNET},
+                        1);
+            }
+        }
 
         // BUTTONS
         spotPickBtn = (Button) findViewById(R.id.spotPickBtn);

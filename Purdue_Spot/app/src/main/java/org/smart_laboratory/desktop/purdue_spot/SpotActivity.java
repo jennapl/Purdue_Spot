@@ -59,7 +59,7 @@ public class SpotActivity extends AppCompatActivity {
         mUniTimeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String website = "http://www.purdue.edu";
+                String website = "https://timetable.mypurdue.purdue.edu/Timetabling/gwt.jsp?page=personal";
                 Intent mIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(website));
                 startActivity(mIntent);
             }
