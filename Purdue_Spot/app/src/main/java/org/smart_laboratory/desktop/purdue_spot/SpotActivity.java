@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SpotActivity extends AppCompatActivity {
     TextView mNameTxt, mIdTxt, mSoundTxt, mPrintTxt, mLightTxt, mCrowdTxt, mStudyTxt, mHoursTxt, mOpenTxt, mAddressTxt, mCityTxt, mStateTxt, mZipTxt, mLocationTxt, mFood, mComp;
-    Button mBackBtn;
+    Button mBackBtn, mUniTimeBtn;
     static String  cSpotId;
     private DBHelper dbHelper;
     LinearLayout privateRoom;
@@ -42,6 +43,7 @@ public class SpotActivity extends AppCompatActivity {
         privateRoom = (LinearLayout) findViewById(R.id.privateLayOut);
         mFood = (TextView) findViewById(R.id.sFoodTxt);
         mComp = (TextView) findViewById(R.id.sUinCompTxt);
+        mUniTimeBtn = (Button) findViewById(R.id.unitimeBtn);
 
         mBackBtn = (Button) findViewById(R.id.sBackBtn);
         mBackBtn.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +52,16 @@ public class SpotActivity extends AppCompatActivity {
                 // Move to List Page
                 Intent aboutIntent = new Intent(SpotActivity.this, ListActivity.class);
                 startActivity(aboutIntent);
+            }
+        });
+
+        mUniTimeBtn = (Button) findViewById(R.id.unitimeBtn);
+        mUniTimeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String website = "http://www.purdue.edu";
+                Intent mIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(website));
+                startActivity(mIntent);
             }
         });
 
