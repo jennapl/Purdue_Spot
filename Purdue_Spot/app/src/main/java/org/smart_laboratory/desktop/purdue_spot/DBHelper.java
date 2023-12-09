@@ -2,19 +2,20 @@ package org.smart_laboratory.desktop.purdue_spot;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.TextView;
 
+/*
+DBHelper
+This code is used to manage our DataBase, it contains:
+onCreate code and add values code to populate the table
+*/
 public class DBHelper extends SQLiteOpenHelper {
 
+    //Defining DB name, TBL name, and Column Names
     private static final String DB_NAME = "spot.db";
     private static final int DB_VERSION = 1;
-
-    // Table
     public static final String TABLE_NAME = "spotTbl";
-    // Columns
     public static final String ID_COL = "spotID";
     public static final String NAME_COL = "spotName";
     public static final String PRINTING_COL = "spotPrinting";
@@ -33,11 +34,11 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COMP_COL = "spotComp";
     public static final String PIC_COL = "spotPath";
 
-
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
+    // onCreate - code to make table
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "create table if not exists " + TABLE_NAME
@@ -67,6 +68,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    // addValues - adds values into table
     public void addValues(String id, String name, String printing, String sound,
                           String light, String crowd, String hours, String open, String room,
                           String addy, String city, String state, String zip, String location, String food, String comp, String pic){
@@ -89,44 +91,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(FOOD_COL, food);
         values.put(COMP_COL, comp);
         values.put(PIC_COL, pic);
-
         db.insert(TABLE_NAME, null, values);
-
-        db.close();
-    }
-
-    public void queryData(TextView qId, TextView qName, TextView qPrint, TextView qSound){
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        //GET VALUES
-        myDBModel fa = new myDBModel();
-        String vPrint = fa.getPrint();
-        String vSound = fa.getSound();
-
-        Cursor cursor;
-        cursor = db.rawQuery("SELECT * FROM "
-                + TABLE_NAME
-                + " WHERE " + PRINTING_COL + " = " + "'" + vPrint + "'"
-                + " AND "
-                + SOUND_COL + " = " + "'" + vSound + "'"
-                +";", null);
-
-        String strIDs = "ID" + "\r\n" + "--------" + "\r\n";
-        String strName = "Name" + "\r\n" + "--------" + "\r\n";
-        String strPrint = "Print" + "\r\n" + "--------" + "\r\n";
-        String strSound = "Sound" + "\r\n" + "--------" + "\r\n";
-        while (cursor.moveToNext()) {
-            strIDs += cursor.getString(0) + "\r\n";
-            strName += cursor.getString(1) + "\r\n";
-            strPrint += cursor.getString(2) + "\r\n";
-            strSound += cursor.getString(3) + "\r\n";
-        }
-        qId.setText(strIDs);
-        qName.setText(strName);
-        qPrint.setText(strPrint);
-        qSound.setText(strSound);
-
-        cursor.close();
         db.close();
     }
 }

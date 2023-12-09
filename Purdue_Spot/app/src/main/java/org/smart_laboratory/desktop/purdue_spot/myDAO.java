@@ -1,14 +1,18 @@
 package org.smart_laboratory.desktop.purdue_spot;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+myDOA
+This class is used to get all of the users filters, run a query using them, then
+populate a list with the all of the data to be shown in the adapter
+for the recycle viewer.
+*/
 public class myDAO {
     private DBHelper dbHelper;
     private String qSound, qPrint, qLocation, qLight, qCrowd, qFood, qComp, qOpen;
@@ -16,28 +20,13 @@ public class myDAO {
     public myDAO(Context context) {
         dbHelper = new DBHelper(context);
     }
-    public long insertData(myDBModel data) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put(DBHelper.ID_COL, data.getId());
-        values.put(DBHelper.NAME_COL, data.getName());
-        values.put(DBHelper.SOUND_COL, data.getSound());
-        values.put(DBHelper.PRINTING_COL, data.getPrint());
-        values.put(DBHelper.FOOD_COL, data.getFood());
-        values.put(DBHelper.ALWAYS_OPEN_COL, data.getOpen());
-        values.put(DBHelper.COMP_COL, data.getComp());
-
-        long newRowId = db.insert(DBHelper.TABLE_NAME, null, values);
-
-        db.close();
-        return newRowId;
-    }
-
+    // getAllData - gets all data that matches user query and outputs into list for adapter
     public List<myDBModel> getAllData() {
         List<myDBModel> dataList = new ArrayList<>();
         FiltersClass fc = new FiltersClass();
 
+        // Get Filters
         qSound = fc.getSelectedQuiet();
         qPrint =  fc.getSelectedPrint();
         qLocation = fc.getSelectedLocation();
@@ -47,6 +36,7 @@ public class myDAO {
         qOpen = fc.getSelectedOpen();
         qComp = fc.getSelectedComp();
 
+        //Query using filters
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE " + DBHelper.PRINTING_COL
                 + " = '" + qPrint + "' AND "
@@ -59,6 +49,7 @@ public class myDAO {
                 + DBHelper.COMP_COL + " = '" + qComp
                 + "'", null);
 
+        //Add values into dbModel and then add into list
         if (cursor.moveToFirst()) {
             do {
                 myDBModel dbModel = new myDBModel();
@@ -73,11 +64,13 @@ public class myDAO {
                 dbModel.setComp(cursor.getString(cursor.getColumnIndex(DBHelper.COMP_COL)));
                 dbModel.setOpen(cursor.getString(cursor.getColumnIndex(DBHelper.ALWAYS_OPEN_COL)));
                 dbModel.setPath(cursor.getString(cursor.getColumnIndex(DBHelper.PIC_COL)));
+                // DBModel into list
                 dataList.add(dbModel);
             } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
+        // Return list of values
         return dataList;
     }
 }

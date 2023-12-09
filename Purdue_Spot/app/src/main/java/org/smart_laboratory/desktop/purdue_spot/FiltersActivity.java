@@ -3,24 +3,22 @@ package org.smart_laboratory.desktop.purdue_spot;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+/*
+FiltersActivity
+This activity is where users specify their filters.
+The information is stored upon the Search button click.
+*/
 public class FiltersActivity extends AppCompatActivity {
     Button mSearch, mBack;
     RadioButton mPrint, mFood, mComp, mQuiet, mOpen;
     Spinner mLocation, mLighting, mCrowd;
-
-
-    String [] soundLevels = {"Quiet", "Loud"};
     String [] crowdLevel = {"Crowded", "Medium", "Empty"};
     String [] lightTypes = {"Natural Light", "Dim", "Fluorescent Light"};
     String [] locationTypes = {"Academic", "Central", "Residential", "Chauncey"};
@@ -31,6 +29,7 @@ public class FiltersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filters);
 
+        // Setting Spinner Adapters
         ArrayAdapter<String> lightAdapter = new ArrayAdapter
                 <String>(this, R.layout.custom_spinner_dropdown_item, lightTypes);
         lightAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -41,6 +40,7 @@ public class FiltersActivity extends AppCompatActivity {
                 <String>(this, R.layout.custom_spinner_dropdown_item, locationTypes);
         locAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        // Instantiate info
         mSearch = (Button) findViewById(R.id.searchBtn);
         mBack = (Button) findViewById(R.id.backBtn);
 
@@ -61,12 +61,10 @@ public class FiltersActivity extends AppCompatActivity {
         mCrowd.setAdapter(crowdAdapter);
         mCrowd.setDropDownWidth(getResources().getDisplayMetrics().widthPixels);
 
-
-        // LISTENERS
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Move to Filters Page
+                // Moves to Home Page
                 Intent aboutIntent = new Intent(FiltersActivity.this, MainActivity.class);
                 startActivity(aboutIntent);
             }
@@ -75,7 +73,7 @@ public class FiltersActivity extends AppCompatActivity {
         mSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Move to Filters Page
+                // Stores filter values and moves to ListActivity
                 FiltersClass fc = new FiltersClass();
                 fc.setSelectedPrint(mPrint);
                 fc.setSelectedLocation(mLocation);
@@ -86,10 +84,10 @@ public class FiltersActivity extends AppCompatActivity {
                 fc.setSelectedOpen(mOpen);
                 fc.setSelectedQuiet(mQuiet);
 
+                //Moves to ListActivity
                 Intent listActivity = new Intent(FiltersActivity.this, ListActivity.class);
                 startActivity(listActivity);
             }
         });
-
     }
 }

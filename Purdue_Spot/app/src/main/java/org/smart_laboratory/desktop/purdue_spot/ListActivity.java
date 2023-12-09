@@ -1,8 +1,6 @@
 package org.smart_laboratory.desktop.purdue_spot;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,12 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+/*
+ListActivity
+This activity is used to show the list of spots
+that fit the users filters, shown in a RecyclerView.
+
+Keep in mind, there are not a lot of spots in the DB
+so often many filters only show one spot, as there are
+few spots that share filter values.
+*/
+
 public class ListActivity extends AppCompatActivity {
-
-    TextView flag1;
     Button mBack, mChange;
-
-    TextView qId, qName, qSound, qPrint;
     private RecyclerView mSpotViewer;
     private myDAO dao;
     private spotAdapter adapter;
@@ -31,53 +35,41 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_page);
 
-        //myDBModel DBModel = new myDBModel();
-        FiltersClass fa = new FiltersClass();
         dbHelper = new DBHelper(this);
 
-        flag1 = (TextView) findViewById(R.id.flag1);
         mBack = (Button) findViewById(R.id.lpBackBtn);
         mChange = (Button) findViewById(R.id.changeBtn);
-        qId = (TextView) findViewById(R.id.idTxt);
-        qName = (TextView) findViewById(R.id.nameTxt);
-        qSound = (TextView) findViewById(R.id.soundTxt);
-        qPrint = (TextView) findViewById(R.id.printTxt);
         mSpotViewer = (RecyclerView) findViewById(R.id.spotsRv);
+        // Gets all of the data that match the filters
         dao = new myDAO(this);
-        //new DatabaseTask().execute();
 
-        // Takes list of values and show on recyclerView
+        // Shows list in RecyclerView
         List<myDBModel> spotList = dao.getAllData();
         adapter = new spotAdapter(ListActivity.this, spotList);
         mSpotViewer.setLayoutManager(new LinearLayoutManager(ListActivity.this));
         mSpotViewer.setAdapter(adapter);
+
+        // Shows if no spots match the users filters
         if (spotList.isEmpty()){
             Toast.makeText(ListActivity.this, "No spots match your filters.",
                     Toast.LENGTH_LONG).show();
         }
 
-        /*// SET TEXT VIEW -- Flag
-        vPrint = fa.getSelectedPrint();
-        vSound = fa.getSelectedSound();
-
-        flag1.setText("FLAG: Print " + vPrint + " Sound: " + vSound);
-        dbHelper.queryData(qId, qName, qSound, qPrint);*/
-
-        //Change Activity to Filters
+        // Change users filters
         mChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Move to Filters Page
+                // Moves to Filters Page
                 Intent aboutIntent = new Intent(ListActivity.this, FiltersActivity.class);
                 startActivity(aboutIntent);
             }
         });
 
-        //Change Activity to Home
+        // Return to Home
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Move to Filters Page
+                // Move home
                 Intent aboutIntent = new Intent(ListActivity.this, MainActivity.class);
                 startActivity(aboutIntent);
             }

@@ -1,12 +1,18 @@
 package org.smart_laboratory.desktop.purdue_spot;
 
+/*
+myDBModel
+This class is used to set all of the data of the queried results that
+match the users filters, and used by spotAdapter to show the data of the
+spots in the RecyclerViewer
+*/
 public class myDBModel {
     private String sId, sName, sPrint, sSound, sLocation, sCrowd, sLight, sFood, sComp, sOpen, sPath;
 
     public myDBModel() {
     }
 
-    // Constructor with parameters - is this needed?
+    // Ignore
     public myDBModel(String spotID, String spotName, String spotPrinting, String spotSoundLevel, String spotLocation) {
         this.sId = spotID;
         this.sName = spotName;
@@ -14,6 +20,8 @@ public class myDBModel {
         this.sSound = spotSoundLevel;
         this.sLocation = spotLocation;
     }
+
+    // Getters and Setters for all Values
 
     public String getId() {
         return sId;
