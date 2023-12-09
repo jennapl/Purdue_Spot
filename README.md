@@ -42,6 +42,8 @@ To usethe random spot feature, click the RandomSpot button on the home page. The
 ### ***About***
 The about page is avaiable to show these instructions and provide creator information. 
 
+To query spots for testing purposes, please view the CNIT355_Purdue_Spot-DataBase.pdf file which details the DB structure and values for each spot. This will allow for ease of use of application in testing purposes, as you can know what to select filter wise.
+
 ### Creator Contact:
 Main Developer: Jenna Lusk - jplusk@purdue.edu
 UI: Khushi Sani - sainik@purdue.edu
