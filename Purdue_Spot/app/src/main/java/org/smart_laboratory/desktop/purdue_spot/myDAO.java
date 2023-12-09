@@ -72,7 +72,7 @@ public class myDAO {
                 dbModel.setFood(cursor.getString(cursor.getColumnIndex(DBHelper.FOOD_COL)));
                 dbModel.setComp(cursor.getString(cursor.getColumnIndex(DBHelper.COMP_COL)));
                 dbModel.setOpen(cursor.getString(cursor.getColumnIndex(DBHelper.ALWAYS_OPEN_COL)));
-
+                dbModel.setPath(cursor.getString(cursor.getColumnIndex(DBHelper.PIC_COL)));
                 dataList.add(dbModel);
             } while (cursor.moveToNext());
         }

@@ -53,10 +53,11 @@
                 android:id="@+id/infoBtn"
                 android:layout_width="169dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/purdue"
+                android:backgroundTint="@color/black"
                 android:fontFamily="sans-serif-light"
                 android:text="View More"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

@@ -31,6 +31,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String LOCATION_COL = "spotLocation";
     public static final String FOOD_COL = "spotFood";
     public static final String COMP_COL = "spotComp";
+    public static final String PIC_COL = "spotPath";
 
 
     public DBHelper(Context context) {
@@ -55,7 +56,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 + " " + ZIP_COL + " char(50),"
                 + " " + LOCATION_COL + " char(50),"
                 + " " + FOOD_COL + " char(50),"
-                + " " + COMP_COL + " char(50));";
+                + " " + COMP_COL + " char(50),"
+                + " " + PIC_COL + " char(50));";
         db.execSQL(query);
     }
 
@@ -67,7 +69,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void addValues(String id, String name, String printing, String sound,
                           String light, String crowd, String hours, String open, String room,
-                          String addy, String city, String state, String zip, String location, String food, String comp){
+                          String addy, String city, String state, String zip, String location, String food, String comp, String pic){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(ID_COL, id);
@@ -86,6 +88,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(LOCATION_COL, location);
         values.put(FOOD_COL, food);
         values.put(COMP_COL, comp);
+        values.put(PIC_COL, pic);
 
         db.insert(TABLE_NAME, null, values);
 

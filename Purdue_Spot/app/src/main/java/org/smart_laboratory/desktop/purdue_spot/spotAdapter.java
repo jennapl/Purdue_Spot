@@ -47,9 +47,9 @@ public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
                 // Handle button click
                 String cSpotId = spotRow.getId();  // or however you get the item ID
                 //openPageWithId(clickedItemId);
-                Intent aboutIntent = new Intent(context, SpotActivity.class);
-                aboutIntent.putExtra("SPOT_ID", cSpotId);
-                context.startActivity(aboutIntent);
+                Intent spotIntent = new Intent(context, SpotActivity.class);
+                spotIntent.putExtra("SPOT_ID", cSpotId);
+                context.startActivity(spotIntent);
             }
         });
 

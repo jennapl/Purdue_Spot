@@ -3,11 +3,13 @@ package org.smart_laboratory.desktop.purdue_spot;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +18,7 @@ public class FiltersActivity extends AppCompatActivity {
     Button mSearch, mBack;
     RadioButton mPrint, mFood, mComp, mQuiet, mOpen;
     Spinner mLocation, mLighting, mCrowd;
+
 
     String [] soundLevels = {"Quiet", "Loud"};
     String [] crowdLevel = {"Crowded", "Medium", "Empty"};
@@ -28,14 +31,15 @@ public class FiltersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filters);
 
-        ArrayAdapter<String> soundAdapter = new ArrayAdapter
-                <String>(this, android.R.layout.simple_spinner_item, soundLevels);
         ArrayAdapter<String> lightAdapter = new ArrayAdapter
-                <String>(this, android.R.layout.simple_spinner_item, lightTypes);
+                <String>(this, R.layout.custom_spinner_dropdown_item, lightTypes);
+        lightAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ArrayAdapter<String> crowdAdapter = new ArrayAdapter
-                <String>(this, android.R.layout.simple_spinner_item, crowdLevel);
+                <String>(this, R.layout.custom_spinner_dropdown_item, crowdLevel);
+        crowdAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ArrayAdapter<String> locAdapter = new ArrayAdapter
-                <String>(this, android.R.layout.simple_spinner_item, locationTypes);
+                <String>(this, R.layout.custom_spinner_dropdown_item, locationTypes);
+        locAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         mSearch = (Button) findViewById(R.id.searchBtn);
         mBack = (Button) findViewById(R.id.backBtn);
@@ -49,10 +53,14 @@ public class FiltersActivity extends AppCompatActivity {
 
         mLocation = (Spinner) findViewById(R.id.locSpin);
         mLocation.setAdapter(locAdapter);
+        mLocation.setDropDownWidth(getResources().getDisplayMetrics().widthPixels);
         mLighting = (Spinner) findViewById(R.id.lightSpin);
         mLighting.setAdapter(lightAdapter);
+        mLighting.setDropDownWidth(getResources().getDisplayMetrics().widthPixels);
         mCrowd = (Spinner) findViewById(R.id.crowdSpin);
         mCrowd.setAdapter(crowdAdapter);
+        mCrowd.setDropDownWidth(getResources().getDisplayMetrics().widthPixels);
+
 
         // LISTENERS
         mBack.setOnClickListener(new View.OnClickListener() {
@@ -78,8 +86,8 @@ public class FiltersActivity extends AppCompatActivity {
                 fc.setSelectedOpen(mOpen);
                 fc.setSelectedQuiet(mQuiet);
 
-                Intent aboutIntent = new Intent(FiltersActivity.this, ListActivity.class);
-                startActivity(aboutIntent);
+                Intent listActivity = new Intent(FiltersActivity.this, ListActivity.class);
+                startActivity(listActivity);
             }
         });
 

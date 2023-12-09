@@ -7,8 +7,10 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SpotActivity extends AppCompatActivity {
     TextView mNameTxt, mIdTxt, mSoundTxt, mPrintTxt, mLightTxt, mCrowdTxt, mStudyTxt, mHoursTxt, mOpenTxt, mAddressTxt, mCityTxt, mStateTxt, mZipTxt, mLocationTxt, mFood, mComp;
     Button mBackBtn, mUniTimeBtn;
+    ImageView mImage;
     static String  cSpotId;
     private DBHelper dbHelper;
     LinearLayout privateRoom;
@@ -44,6 +47,7 @@ public class SpotActivity extends AppCompatActivity {
         mFood = (TextView) findViewById(R.id.sFoodTxt);
         mComp = (TextView) findViewById(R.id.sUinCompTxt);
         mUniTimeBtn = (Button) findViewById(R.id.unitimeBtn);
+        mImage = (ImageView) findViewById(R.id.spotImg);
 
         mBackBtn = (Button) findViewById(R.id.sBackBtn);
         mBackBtn.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +80,7 @@ public class SpotActivity extends AppCompatActivity {
         SQLiteDatabase db = dbH.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE " + DBHelper.ID_COL
                 + " = '" + cSpotId +"'", null);
-
+        mNameTxt.setText(cSpotId);
         if (cursor.moveToFirst()) {
             do {
                 mIdTxt.setText(cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL)));
@@ -127,6 +131,16 @@ public class SpotActivity extends AppCompatActivity {
                 } else {
                     privateRoom.setVisibility(View.GONE);
                 }
+
+                String imgpath = cursor.getString(cursor.getColumnIndex(DBHelper.PIC_COL));
+                int resourceID = getResources().getIdentifier(imgpath, "drawable", getPackageName());
+
+                Log.d("ImageDebug", "Spot ID: " + cSpotId);
+                Log.d("ImageDebug", "Image Path: " + imgpath);
+                Log.d("ImageDebug", "Resource ID: " + resourceID);
+
+// Set the image resource
+                mImage.setImageResource(resourceID);
 
             } while (cursor.moveToNext());
         }

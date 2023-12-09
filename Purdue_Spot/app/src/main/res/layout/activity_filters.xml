@@ -2,15 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/purdue"
     tools:context=".SpotActivity">
 
 
     <LinearLayout
-        android:layout_width="391dp"
-        android:layout_height="788dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@color/purdue"
         android:orientation="vertical"
         android:paddingLeft="20dp"
@@ -20,9 +20,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.666">
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_weight="1">
 
         <Button
             android:id="@+id/backBtn"
@@ -45,7 +47,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="5dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
             android:background="@color/black"
             android:orientation="vertical"></LinearLayout>
 
@@ -61,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:text="Select your Filters:"
                 android:textColor="@color/black"
-                android:textSize="25dp"
+                android:textSize="38dp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -141,33 +147,13 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Sound Level:"
-                    android:textColor="@color/black"
-                    android:textSize="25dp" />
-
-                <Spinner
-                    android:id="@+id/soundSpin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Campus Location"
                     android:textColor="@color/black"
-                    android:textSize="25dp" />
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/locSpin"
@@ -187,7 +173,8 @@
                     android:layout_height="wrap_content"
                     android:text="Crowd Level:"
                     android:textColor="@color/black"
-                    android:textSize="25dp" />
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/crowdSpin"
@@ -206,7 +193,8 @@
                     android:layout_height="wrap_content"
                     android:text="Lighting:"
                     android:textColor="@color/black"
-                    android:textSize="25dp" />
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/lightSpin"
