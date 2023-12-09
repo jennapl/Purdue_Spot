@@ -21,11 +21,11 @@ To run the PurdueSpot app, one must have AndroidStudio installed on their comput
 ## Project Instructions
 The sections below descibe the steps needed to use the various features of the PurdueSpot app.
 
-### StudySpot
+### ***StudySpot***
 PurdueSpot launches on the home page. To search for a spot, click StudySpot. Then provide the filters you wish to see. Click search. If spots appear that match your spot list, they will appear. If not, you will get a toast message indicating other wise. Click View More to see more info on a spot. On the list page, you can hit Change to change your filters or back to return to the home page.
 
-### RandomSpot
+### ***RandomSpot***
 To usethe random spot feature, click the RandomSpot button on the home page. There, a random spot will appear with all of the information. Click back to return to home page. 
 
-### About
+### ***About***
 The about page is avaiable to show these instructions and provide creator information. 
