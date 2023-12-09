@@ -18,6 +18,8 @@ spotAdapter
 This is used to set the recyclerView format, calling the item_spot XML file
 and doing the action listener of the view more button, to call the SpotActivity
 for the clicked Spot ID
+
+// CITATION: https://chat.openai.com/ assited in the development of this section of the code
 */
 public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
     private List<myDBModel> spotList;
@@ -50,6 +52,7 @@ public class spotAdapter extends RecyclerView.Adapter<spotAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 // Put ID into intent to be called by SpotActivity
+                // CITATION: https://chat.openai.com/ assited in the development of this section of the code
                 String cSpotId = spotRow.getId();
                 Intent spotIntent = new Intent(context, SpotActivity.class);
                 spotIntent.putExtra("SPOT_ID", cSpotId);

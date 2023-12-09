@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Finds a random ID in the DB
                 SQLiteDatabase db = dbHelper.getReadableDatabase();
+                // CITATION: https://chat.openai.com/ assited in the development of this section of the code
                 Cursor c = db.rawQuery("SELECT " + ID_COL + " FROM " + DBHelper.TABLE_NAME + "  ORDER BY RANDOM() LIMIT 1", null);
                 String queryId = null;
                 // Saves ID of random row into string

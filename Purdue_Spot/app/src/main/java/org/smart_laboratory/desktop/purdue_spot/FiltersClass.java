@@ -21,6 +21,7 @@ public class FiltersClass {
 
     // Sets the value of the printer filter
     public void setSelectedPrint(RadioButton selected) {
+        // CITATION: https://stackoverflow.com/questions/11050074/how-to-check-if-radiobutton-is-checked
         if (selected.isChecked()) {
             FiltersClass.sPrint = "Yes";
         } else {
@@ -47,6 +48,7 @@ public class FiltersClass {
     }
 
     public void setSelectedCrowd(Spinner selected) {
+        // CITATION: https://stackoverflow.com/questions/5787809/get-spinner-selected-items-text
         FiltersClass.sCrowd = selected.getSelectedItem().toString();
     }
 

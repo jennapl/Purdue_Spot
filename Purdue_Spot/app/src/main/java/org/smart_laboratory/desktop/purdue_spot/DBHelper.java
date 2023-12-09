@@ -69,6 +69,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // addValues - adds values into table
+    // CITATION: https://chat.openai.com/ assited in the put values of this section of the code
     public void addValues(String id, String name, String printing, String sound,
                           String light, String crowd, String hours, String open, String room,
                           String addy, String city, String state, String zip, String location, String food, String comp, String pic){

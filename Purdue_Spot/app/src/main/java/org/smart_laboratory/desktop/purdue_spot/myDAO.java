@@ -12,6 +12,7 @@ myDOA
 This class is used to get all of the users filters, run a query using them, then
 populate a list with the all of the data to be shown in the adapter
 for the recycle viewer.
+// CITATION: https://chat.openai.com/ assited in the development of this section of the code
 */
 public class myDAO {
     private DBHelper dbHelper;
@@ -37,6 +38,7 @@ public class myDAO {
         qComp = fc.getSelectedComp();
 
         //Query using filters
+        // CITATION: https://stackoverflow.com/questions/31886025/do-i-have-to-close-the-cursor-object-whenever-i-call-rawquery
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME + " WHERE " + DBHelper.PRINTING_COL
                 + " = '" + qPrint + "' AND "

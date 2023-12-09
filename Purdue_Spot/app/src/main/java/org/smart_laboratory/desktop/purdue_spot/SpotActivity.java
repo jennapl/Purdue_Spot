@@ -78,6 +78,7 @@ public class SpotActivity extends AppCompatActivity {
 
         // Gets the put value of the ID from the randomSpot and search button press to
         // show the spot info of the selected or random id
+        // CITATION: https://chat.openai.com/ assited in the development of this section of the code
         cSpotId = getIntent().getStringExtra("SPOT_ID");
         dbHelper = new DBHelper(this);
         setSpotFields(dbHelper);
@@ -90,6 +91,7 @@ public class SpotActivity extends AppCompatActivity {
                 + " = '" + cSpotId +"'", null);
         mNameTxt.setText(cSpotId);
         // Sets all the text values with the ID's info
+        // CITATION: https://chat.openai.com/ and https://www.tabnine.com/code/java/classes/android.database.Cursor assited in the development of this section of the code
         if (cursor.moveToFirst()) {
             do {
                 mIdTxt.setText(cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL)));
@@ -105,6 +107,7 @@ public class SpotActivity extends AppCompatActivity {
 
                 // Sets color black if printing, grey if not
                 if(cursor.getString(cursor.getColumnIndex(DBHelper.PRINTING_COL)).equals("Yes")){
+                    // CITATION: https://stackoverflow.com/questions/4602902/how-to-set-the-text-color-of-textview-in-code
                     mPrintTxt.setTextColor(Color.parseColor("#000000"));
                 } else {
                     mPrintTxt.setTextColor(Color.parseColor("#d3d3d3"));
@@ -149,6 +152,7 @@ public class SpotActivity extends AppCompatActivity {
 
                 // Sets image using PIC_COL value to img path in drawables
                 String imgpath = cursor.getString(cursor.getColumnIndex(DBHelper.PIC_COL));
+                // CITATION: https://stackoverflow.com/questions/64158273/what-does-getresources-getidentifier-do-in-android
                 int resourceID = getResources().getIdentifier(imgpath, "drawable", getPackageName());
                 mImage.setImageResource(resourceID);
             } while (cursor.moveToNext());
