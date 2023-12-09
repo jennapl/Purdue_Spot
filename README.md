@@ -53,3 +53,6 @@ Thank you to Purdue Univeristy's CNIT 355 Professor Byung-Cheol Min for his help
 ## Software Version
 Java - 1.8.0_311
 AndroidStudio - Android Studio Giraffe 2022.3.1 Patch 2
+
+## License 
+See the license.md file for license information
